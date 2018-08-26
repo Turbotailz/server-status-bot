@@ -4,6 +4,12 @@ Shows the current player count from a Minecraft server as a status on a Discord 
 ## Example
 ![Example](https://i.imgur.com/ScyP7Hl.png)
 
+## Requirements
+
+- [NodeJS](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/) installed
+- A running Minecraft server and its address 
+- A [Discord bot](https://discordapp.com/developers/applications/) and its token
+
 ## Instructions
 
 - Clone this repo
