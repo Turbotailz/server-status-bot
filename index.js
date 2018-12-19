@@ -1,6 +1,7 @@
 require('dotenv').config();
 require('console-stamp')(console, 'HH:MM:ss.l');
 
+const env = process.env;
 const minestat = require('./minestat.js');
 const discord = require('discord.js');
 const client = new discord.Client();
@@ -11,16 +12,16 @@ let playersOnline = 0;
 // Start polling the server for data and store the data in a cache
 setInterval(() => {
 	try {
-		minestat.init(process.env.SERVER_ADDRESS, 25565, () => {
+		minestat.init(env.SERVER_ADDRESS, 25565, () => {
 			playersOnline = minestat.current_players;
 			serverOnline = minestat.online;
 		});
 	}
 	catch(error) { console.log(error); }
-}, 10000);
+}, env.INTERVAL);
 
 // Log in with the bot token in .env
-client.login(process.env.DISCORD_TOKEN);
+client.login(env.DISCORD_TOKEN);
 
 // Start updating the Discord bot's activity with cached server data
 client.on('ready', () => {
@@ -60,7 +61,7 @@ client.on('ready', () => {
 				.then()
 				.catch(console.log);
 		}
-	}, 10000);
+	}, env.INTERVAL);
 });
 
 client.on('error', console.error);
