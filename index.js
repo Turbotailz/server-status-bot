@@ -12,7 +12,7 @@ let playersOnline = 0;
 // Start polling the server for data and store the data in a cache
 setInterval(() => {
 	try {
-		minestat.init(env.SERVER_ADDRESS, 25565, () => {
+		minestat.init(env.SERVER_ADDRESS, env.SERVER_PORT, () => {
 			playersOnline = minestat.current_players;
 			serverOnline = minestat.online;
 		});
