@@ -8,7 +8,7 @@ const client = new discord.Client();
 let serverOnline = false;
 let playersOnline = 0;
 
-// Poll 
+// Start polling the server for data and store the data in a cache
 setInterval(() => {
 	try {
 		minestat.init(process.env.SERVER_ADDRESS, 25565, () => {
@@ -19,8 +19,10 @@ setInterval(() => {
 	catch(error) { console.log(error); }
 }, 10000);
 
+// Log in with the bot token in .env
 client.login(process.env.DISCORD_TOKEN);
 
+// Start updating the Discord bot's activity with cached server data
 client.on('ready', () => {
 	client.setInterval(() => {
 		if (serverOnline) {
