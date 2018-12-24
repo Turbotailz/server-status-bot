@@ -15,7 +15,7 @@ setInterval(() => {
 		minestat.init(env.SERVER_ADDRESS, env.SERVER_PORT, () => {
 			playersOnline = minestat.current_players;
 			serverOnline = minestat.online;
-		});
+		}); 
 	}
 	catch(error) { console.log(error); }
 }, env.INTERVAL);

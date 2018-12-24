@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "console-stamp": "^0.2.6",
+    "console-stamp": "^0.2.7",
     "discord.js": "^11.4.2",
     "dotenv": "^6.0.0"
   }
